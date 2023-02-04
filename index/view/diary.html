@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./../home/images/icon.png">
+    <link rel="stylesheet" href="./../assets/tools/linfengTools.css">
+    <link rel="stylesheet" href="./../home/css/diary.css">
+
+    <script src="./../assets/tools/linfengTools-min.js"></script>
+    <script src="./../assets/lib/axios.min.js"></script>
+    <script src="./../assets/lib/vue.min.js"></script>
+    <script src="./../assets/config.js"></script>
+    <script src="./../assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="./../assets/lib/lizi/mouse.min.js"></script>
+    <title>林风日记</title>
+</head>
+
+<body>
+    <div class="line"></div>
+    <ul id="bigBox" class="bigBox">
+        <div class="null"></div>
+
+        <li v-key="index" v-for="(item, index) in diarys">
+            <div class="round"></div>
+            <div class="contentBox">
+                <div class="time">{{item.createTextTime}}</div>
+                <div class="text">{{item.text}}</div>
+            </div>
+        </li>
+
+        <div @click="getDiary" class="moreDiaryBtn" :class="{hide: hide}">查看更多</div>
+
+        <div class="null"></div>
+    </ul>
+</body>
+<script src="./../home/js/diary.js"></script>
+<script>
+    const { equipment } = linfengTools
+    if (equipment.pc()) {
+        // 例子特效
+        $.shuicheMouse({
+            type: 11,
+            color: "rgba(187,67,128,1)"
+        })
+    }
+</script>
+</html>

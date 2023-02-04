@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./home/images/icon.png">
+    <!-- 引入林风工具 -->
+    <link rel="stylesheet" href="./assets/tools/linfengTools.css">
+    <script src="./assets/tools/linfengTools-min.js"></script>
+    <!-- 引入自定义动画库 -->
+    <link rel="stylesheet" href="./home/css/anim.css">
+    <!-- 引入jQuery -->
+    <script src="./assets/lib/jquery-3.6.0.min.js"></script>
+    <!-- 引入vue -->
+    <script src="./assets/lib/vue.min.js"></script>
+    <!-- 引入axios -->
+    <script src="./assets/lib/axios.min.js"></script>
+    <!-- 引入配置信息 -->
+    <script src="./assets/config.js"></script>
+    <!-- 引入媒体查询 -->
+    <link rel="stylesheet" href="./home/css/mmedia.css">
+    <!-- 引入基础设置 -->
+    <!-- <script src="./home/js/default.js"></script> -->
+    <!-- 引入基础css -->
+    <link rel="stylesheet" href="./home/css/mindex.css">
+    <!-- 引入例子特效 -->
+    <!-- <script src="./assets/lib/lizi/mouse.min.js"></script> -->
+    <title>林风的小宇宙</title>
+</head>
+
+<body class="mobile">
+    <!-- 主要内容版心 -->
+    <div class="area bigBox">
+        <div class="left">
+            <div class="lTopBox">
+                <div class="headImg"></div>
+                <h2>林风</h2>
+            </div>
+            <ul class="leftList">
+                <li>
+                    <img src="./home/images/diary.png" alt="">
+                    <div>日记</div>
+                </li>
+                <li>
+                    <img src="./home/images/self.png" alt="">
+                    <div>个人简介</div>
+                </li>
+                <li>
+                    <img src="./home/images/navi.png" alt="">
+                    <div>个人导航</div>
+                </li>
+                <li>
+                    <img src="./home/images/friend.png" alt="">
+                    <div>友情链接</div>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <ul id="bigBox">
+                <li @mouseenter="mouseenter(index, $event.currentTarget)"
+                    @click="gotoArticle(item.id)"
+                    @mouseleave="mouseleave(index, $event.currentTarget)" v-key="index" v-for="(item, index) in datas">
+                    <!-- 背景图 -->
+                    <div class="bgi" :style="bgStyle[index]"></div>
+                    <!-- 上层信息 -->
+                    <div class="info">
+                        <h2 v-text="item.title"></h2>
+                        <div class="smallBottomBox">
+                            <p v-text="item.info"></p>
+                            <div class="sbb">
+                                <span class="creatDate">{{item.createDate.slice(0,10)}}</span>
+                                <span class="showNum">{{item.showNum}}次阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <div class="btnBox" :class="{hide: hideBtn}" @click="page()">获取更多</div>
+            </ul>
+        </div>
+        <!-- <div class="right"></div> -->
+    </div>
+
+    <!-- 底部备案号 -->
+    <div class="bottomBox">
+        <div>林风小站</div>
+        <div>
+            <a class="bottomICPText" href="http://beian.miit.gov.cn" target="_blank">冀ICP备2021028292号-1</a>
+            <a class="bottomICPText" href="http://beian.miit.gov.cn" target="_blank">冀ICP备2022003382号-1</a>
+            <a class="bottomICPText" href="http://beian.miit.gov.cn" target="_blank">冀ICP备2022003382号-2</a>
+        </div>
+    </div>
+</body>
+<script src="./home/js/mindex.js"></script>
+
+</html>

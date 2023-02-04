@@ -1,0 +1,21 @@
+@keyframes tbf {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0.5rem);
+  }
+}
+@keyframes daziji {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 16.5rem;
+  }
+}
+@keyframes rotateSmall {
+  100% {
+    transform: rotate(360deg);
+  }
+}

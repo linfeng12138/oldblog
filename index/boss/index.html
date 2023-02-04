@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./../assets/images/icon.png">
+    <link rel="stylesheet" href="./../assets/tools/linfengTools.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./../assets/config.js"></script>
+    <script src="./../assets/tools/linfengTools-min.js"></script>
+    <script src="./assets/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="./../assets/lib/axios.min.js"></script>
+    <script src="./../assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="./../assets/lib/vue.min.js"></script>
+    <title>林风后台</title>
+</head>
+
+<body>
+    <div id="bigBox">
+
+        <!-- 后台登录认证 -->
+        <div :class="{hide: login}" class="loginBox">
+            <h2>林风后台</h2>
+            <table>
+                <tr>
+                    <td>用户名:</td>
+                    <td><input v-focus v-model="user" type="text" class="loginInput loginUser"></td>
+                </tr>
+                <tr>
+                    <td>密&nbsp;&nbsp;&nbsp;码:</td>
+                    <td><input v-model="pwd" type="password" class="loginInput loginPwd" @keyup.enter="goLogin"
+                            autocomplete="off"></td>
+                </tr>
+            </table>
+            <button class="loginBtn" @click="goLogin">登录</button>
+        </div>
+
+
+        <!-- 后台主要内容 -->
+        <div class="box" v-if="login">
+
+            <!-- 左侧导航内容 -->
+            <ul class="navBox">
+                <li @click="selectedNav(index)" :class="{selectedNav: item.selectedNav}"
+                    v-for="(item, index) in navInfo"><img :src="item.src">{{item.text}}</li>
+            </ul>
+
+            <!-- 右侧主要内容 -->
+            <!-- 添加文章 -->
+            <div class="contentBox addArticle" :class="{hide: contentBox[0]}">
+                <h2>由于组件冲突，暂且改为新页面添加文章</h2>
+                <!-- <div id="myTinymce"></div>
+                <button onclick="getText()">get</button> -->
+                <img class="articleImg" src="https://guanlinfeng.oss-cn-beijing.aliyuncs.com/linfeng.jpg">
+                <button @click="gotoAddArticle" class="operationBtn">前往添加文章</button>
+            </div>
+
+            <!-- 删除文章 -->
+            <div class="contentBox deleteArticle" :class="{hide: contentBox[1]}">
+                <h2>删除文章</h2>
+                <div class="th">
+                    <div>序号</div>
+                    <div>文章标题</div>
+                    <div>展示内容</div>
+                    <div>创建时间</div>
+                    <div>文章操作</div>
+                </div>
+                <ul>
+                    <li v-for="(item, index) in article.list">
+                        <div>{{article.count - index}}</div>
+                        <div>{{item.title}}</div>
+                        <div>{{item.info}}</div>
+                        <div>{{linfengTools.date.format(new Date(item.createTime), 'YY-MM-DD hh:mm:ss')}}</div>
+                        <div><button @click="deleteArticle(item.id)" class="deleteBtn">删除</button></div>
+                    </li>
+                </ul>
+                <button class="moreBtn" @click="getArticleList" :class="{hide: article.hide}">加载更多</button>
+            </div>
+
+            <!-- 添加日记 -->
+            <div class="contentBox addDiary" :class="{hide: contentBox[2]}">
+                <h2>添加日记</h2>
+                <textarea v-model="diary.addText" placeholder="在此添加今天的心情吧~" class="addDiaryText"></textarea>
+                <button @click="addDiary" class="moreBtn addDiaryBtn">添加日记</button>
+            </div>
+
+            <!-- 删除日记 -->
+            <div class="contentBox deleteDiary" :class="{hide: contentBox[3]}">
+                <h2>删除日记</h2>
+                <div class="th">
+                    <div class="diaryIndex">序号</div>
+                    <div class="diaryContent">日记内容</div>
+                    <div class="diaryCreateTime">创建时间</div>
+                    <div class="diarySet">文章操作</div>
+                </div>
+                <ul>
+                    <li v-for="(item, index) in diary.list">
+                        <div class="diaryIndex">{{diary.count - index}}</div>
+                        <div class="diaryContent">{{item.text}}</div>
+                        <div class="diaryCreateTime">{{item.createTextTime}}</div>
+                        <div class="diarySet"><button @click="deleteDiary(item.id)" class="deleteBtn">删除</button></div>
+                    </li>
+                </ul>
+                <button class="moreBtn" @click="getDiaryList" :class="{hide: diary.hide}">加载更多</button>
+            </div>
+
+            <!-- 友情链接 -->
+            <div class="contentBox addLink" :class="{hide: contentBox[4]}">
+                <h2>添加友情链接</h2>
+                <table>
+                    <tr>
+                        <td>展示标题:</td>
+                        <td><input v-model="link.title" type="text" placeholder="请输入主要标题"></td>
+                    </tr>
+                    <tr>
+                        <td>显示信息:</td>
+                        <td><input v-model="link.info" type="text" placeholder="请输入副标题"></td>
+                    </tr>
+                    <tr>
+                        <td>图片路径:</td>
+                        <td><input v-model="link.img" type="text" placeholder="请输入链接展示图片"></td>
+                    </tr>
+                    <tr>
+                        <td>链接地址:</td>
+                        <td><input v-model="link.link" type="text" placeholder="请输入链接地址"></td>
+                    </tr>
+                </table>
+                <button class="moreBtn addLinkBtn" @click="addLink">添加链接</button>
+            </div>
+
+            <!-- 自我介绍 -->
+            <div class="contentBox setSelfInfo" :class="{hide: contentBox[5]}">
+                <h2>自我介绍</h2>
+                <textarea v-model="selfInfoText" placeholder="来段激情的自我介绍吧O(∩_∩)O" class="setSelfInfoText"></textarea>
+                <button @click="setSelfInfo" class="moreBtn setSelfInfoBtn">更改自我简介</button>
+            </div>
+
+            <!-- 博客日志 -->
+            <div class="contentBox blogLog" :class="{hide: contentBox[6]}">
+                <h2>操作日志</h2>
+                <div class="th">
+                    <div class="logIndex">序号</div>
+                    <div id="titlelogTitle" class="logTitle">操作项目</div>
+                    <div id="titlelogCreateTime" class="logCreateTime">操作时间</div>
+                    <div class="logInfo">详情</div>
+                </div>
+                <ul>
+                    <li v-for="(item, index) in log.list">
+                        <div class="logIndex">{{log.count - index}}</div>
+                        <div id="logTitle" class="logTitle">{{item.classInfo}}</div>
+                        <div id="logCreateTime" class="logCreateTime">{{item.timeStrInfo}}</div>
+                        <div class="logInfo">{{item.info}}</div>
+                    </li>
+                </ul>
+                <button class="moreBtn" @click="getBlogLog" :class="{hide: log.hide}">加载更多</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="./assets/js/index.js"></script>
+<script src="./assets/js/setTinymce.js"></script>
+
+</html>

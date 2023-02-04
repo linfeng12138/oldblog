@@ -1,0 +1,98 @@
+.bigBox {
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  overflow: scroll;
+}
+.bigBox li {
+  position: relative;
+  margin-top: 50px;
+}
+.bigBox li .round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+.bigBox li .contentBox {
+  width: 70%;
+  margin-left: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+.bigBox li .contentBox .time {
+  height: 30px;
+  line-height: 30px;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 4, 180, 0.8);
+  font-size: 18px;
+}
+.bigBox li .contentBox .text {
+  padding: 20px;
+  text-indent: 1em;
+  font-size: 20px;
+}
+.bigBox .moreDiaryBtn {
+  width: 60%;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 20px;
+  margin: 50px auto;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.5s;
+}
+.bigBox .moreDiaryBtn:hover {
+  cursor: pointer;
+  background-color: rgba(255, 8, 160, 0.8);
+}
+.bigBox .null {
+  height: 20px;
+}
+.line {
+  position: fixed;
+  left: 15%;
+  top: 0;
+  z-index: -1;
+  transform: translateX(9px);
+  width: 70%;
+  height: 100%;
+  border-left: 2px solid rgba(255, 255, 255, 0.8);
+}
+.hide {
+  display: none;
+}
+.bigBox::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .bigBox li .contentBox {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .bigBox li {
+    margin-top: 40px;
+  }
+  .bigBox li .contentBox {
+    width: 90%;
+  }
+  .bigBox li .contentBox .time {
+    padding: 4px 14px;
+    font-size: 14px;
+  }
+  .bigBox li .contentBox .text {
+    padding: 14px;
+    font-size: 16px;
+  }
+  .moreDiaryBtn {
+    font-size: 14px;
+  }
+  .null {
+    height: 1px;
+  }
+}

@@ -1,0 +1,359 @@
+.loginBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 350px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.loginBox h2 {
+  margin-top: 25px;
+  line-height: 80px;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  color: #c204f1;
+}
+.loginBox table {
+  width: 80%;
+  margin: auto;
+  height: 120px;
+  font-weight: 800;
+  color: #f104c9;
+}
+.loginBox table tr > td:nth-child(1) {
+  text-align: right;
+}
+.loginBox table tr > td:nth-child(2) {
+  text-align: center;
+}
+.loginBox table .loginInput {
+  width: 80%;
+  height: 30px;
+  border: 0;
+  padding-left: 10px;
+  background-color: transparent;
+  border-bottom: 1px solid #ffffff;
+  font-size: 18px;
+}
+.loginBox .loginBtn {
+  width: 60%;
+  height: 40px;
+  margin-left: 20%;
+  margin-top: 30px;
+  border: 0;
+  border-radius: 5px;
+  background-color: rgba(200, 0, 255, 0.5);
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+.loginBox .loginBtn:hover {
+  background-color: rgba(255, 0, 212, 0.5);
+}
+.loginBox .loginBtn:active {
+  background-color: rgba(231, 149, 25, 0.5);
+}
+.box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.box .navBox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  height: 100%;
+  background-color: rgba(255, 4, 163, 0.1);
+  background-image: linear-gradient(to right, rgba(255, 4, 163, 0.5), rgba(255, 255, 255, 0.5));
+}
+.box .navBox img {
+  width: 15%;
+  margin-right: 5%;
+  margin-left: -5%;
+}
+.box .navBox li {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 22px;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+}
+.box .navBox li:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, rgba(4, 180, 255, 0.5), rgba(255, 255, 255, 0.5));
+}
+.box .navBox li:active {
+  background-image: linear-gradient(to right, rgba(4, 255, 142, 0.5), rgba(255, 255, 255, 0.5));
+}
+.box .navBox .selectedNav {
+  background-image: linear-gradient(to right, rgba(4, 180, 255, 0.5), rgba(255, 255, 255, 0.5));
+}
+.box .contentBox {
+  position: absolute;
+  left: 15%;
+  top: 0;
+  width: 85%;
+  height: 100%;
+  overflow: scroll;
+}
+.box .contentBox h2 {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 34px;
+}
+.box .contentBox::-webkit-scrollbar {
+  display: none;
+}
+.box .addArticle .articleImg {
+  display: block;
+  width: 30%;
+  margin: auto;
+}
+.box .addArticle .operationBtn {
+  display: block;
+  width: 70%;
+  height: 50px;
+  margin: 50px auto;
+  line-height: 50px;
+  background-color: rgba(0, 255, 251, 0.5);
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: all 0.5s;
+}
+.box .addArticle .operationBtn:hover {
+  background-color: rgba(0, 157, 255, 0.5);
+}
+.box .addArticle .operationBtn:active {
+  background-color: rgba(0, 255, 89, 0.5);
+}
+.box .deleteArticle ul,
+.box .deleteDiary ul,
+.box .blogLog ul {
+  width: 90%;
+  height: 65%;
+  margin: auto;
+  overflow: scroll;
+}
+.box .deleteArticle ul li,
+.box .deleteDiary ul li,
+.box .blogLog ul li {
+  display: flex;
+}
+.box .deleteArticle ul li > div:nth-child(1),
+.box .deleteDiary ul li > div:nth-child(1),
+.box .blogLog ul li > div:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+.box .deleteArticle ul li > div:nth-child(2),
+.box .deleteDiary ul li > div:nth-child(2),
+.box .blogLog ul li > div:nth-child(2) {
+  width: 25%;
+}
+.box .deleteArticle ul li > div:nth-child(3),
+.box .deleteDiary ul li > div:nth-child(3),
+.box .blogLog ul li > div:nth-child(3) {
+  flex: 1;
+}
+.box .deleteArticle ul li > div:nth-child(4),
+.box .deleteDiary ul li > div:nth-child(4),
+.box .blogLog ul li > div:nth-child(4) {
+  width: 25%;
+  text-align: center;
+}
+.box .deleteArticle ul li > div:nth-child(5),
+.box .deleteDiary ul li > div:nth-child(5),
+.box .blogLog ul li > div:nth-child(5) {
+  width: 10%;
+  text-align: center;
+}
+.box .deleteArticle ul li div,
+.box .deleteDiary ul li div,
+.box .blogLog ul li div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
+  height: 70px;
+  line-height: 70px;
+}
+.box .deleteArticle ul li,
+.box .deleteDiary ul li,
+.box .blogLog ul li {
+  border-bottom: 1px dotted #888;
+}
+.box .deleteArticle > ul::-webkit-scrollbar,
+.box .deleteDiary > ul::-webkit-scrollbar,
+.box .blogLog > ul::-webkit-scrollbar {
+  display: none;
+}
+.box .deleteArticle .th,
+.box .deleteDiary .th,
+.box .blogLog .th {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+.box .deleteArticle .th > div:nth-child(1),
+.box .deleteDiary .th > div:nth-child(1),
+.box .blogLog .th > div:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+.box .deleteArticle .th > div:nth-child(2),
+.box .deleteDiary .th > div:nth-child(2),
+.box .blogLog .th > div:nth-child(2) {
+  width: 25%;
+}
+.box .deleteArticle .th > div:nth-child(3),
+.box .deleteDiary .th > div:nth-child(3),
+.box .blogLog .th > div:nth-child(3) {
+  flex: 1;
+}
+.box .deleteArticle .th > div:nth-child(4),
+.box .deleteDiary .th > div:nth-child(4),
+.box .blogLog .th > div:nth-child(4) {
+  width: 25%;
+  text-align: center;
+}
+.box .deleteArticle .th > div:nth-child(5),
+.box .deleteDiary .th > div:nth-child(5),
+.box .blogLog .th > div:nth-child(5) {
+  width: 10%;
+  text-align: center;
+}
+.box .deleteArticle .th div,
+.box .deleteDiary .th div,
+.box .blogLog .th div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
+  padding: 10px 0;
+}
+.box .deleteArticle .moreBtn,
+.box .deleteDiary .moreBtn,
+.box .blogLog .moreBtn {
+  margin-top: 20px;
+}
+.box .deleteDiary .th .diaryContent {
+  flex: 1;
+}
+.box .deleteDiary ul li .diaryCreateTime {
+  width: 25%;
+  text-align: center;
+}
+.box .deleteDiary ul li .diaryContent {
+  flex: 1;
+}
+.box .deleteDiary ul li .diarySet .deleteBtn {
+  height: 40px;
+}
+.box .addDiary .addDiaryText,
+.box .setSelfInfo .addDiaryText,
+.box .addDiary .setSelfInfoText,
+.box .setSelfInfo .setSelfInfoText {
+  display: block;
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  text-indent: 2em;
+  font-size: 20px;
+}
+.box .addDiary .addDiaryBtn,
+.box .setSelfInfo .addDiaryBtn,
+.box .addDiary .setSelfInfoBtn,
+.box .setSelfInfo .setSelfInfoBtn {
+  margin-top: 40px;
+}
+.box .blogLog .th .logInfo {
+  flex: 1;
+}
+.box .blogLog .th #titlelogTitle {
+  width: 20%;
+}
+.box .blogLog .th #titlelogCreateTime {
+  flex: initial;
+  width: 25%;
+}
+.box .blogLog ul li {
+  text-align: center;
+}
+.box .blogLog ul li .logInfo {
+  flex: 1;
+}
+.box .blogLog ul li #logTitle {
+  width: 20%;
+}
+.box .blogLog ul li #logCreateTime {
+  flex: initial;
+  width: 25%;
+}
+.box .addLink table {
+  width: 80%;
+  height: 300px;
+  margin: auto;
+}
+.box .addLink table tr input {
+  width: 80%;
+  height: 45px;
+  margin-left: 10px;
+  padding: 0 20px;
+  font-size: 18px;
+  border: 0;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+}
+.box .addLink table tr > td:nth-child(1) {
+  width: 20%;
+  font-size: 20px;
+  text-align: right;
+}
+.box .addLink .addLinkBtn {
+  margin-top: 20px;
+}
+.moreBtn {
+  display: block;
+  width: 70%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba(14, 255, 162, 0.5);
+  font-size: 20px;
+  border: 0;
+  margin: auto;
+  transition: all 0.5s;
+}
+.moreBtn:hover {
+  background-color: rgba(48, 241, 0, 0.5);
+}
+.deleteBtn {
+  width: 70%;
+  height: 28px;
+  background-color: rgba(255, 0, 0, 0.4);
+  border: 0;
+  transition: all 0.5s;
+}
+.deleteBtn:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+.hide {
+  display: none;
+}

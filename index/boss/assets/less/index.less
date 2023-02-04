@@ -1,0 +1,435 @@
+.loginBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    h2 {
+        margin-top: 25px;
+        line-height: 80px;
+        font-size: 30px;
+        font-weight: 800;
+        text-align: center;
+        color: #c204f1;
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+        height: 120px;
+        font-weight: 800;
+        color: #f104c9;
+
+        tr>td:nth-child(1) {
+            text-align: right;
+        }
+
+        tr>td:nth-child(2) {
+            text-align: center;
+        }
+
+        .loginInput {
+            width: 80%;
+            height: 30px;
+            // border-radius: 5px;
+            border: 0;
+            padding-left: 10px;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+            font-size: 18px;
+        }
+    }
+
+    .loginBtn {
+        width: 60%;
+        height: 40px;
+        margin-left: 20%;
+        margin-top: 30px;
+        border: 0;
+        border-radius: 5px;
+        background-color: rgba(200, 0, 255, 0.5);
+        font-size: 16px;
+        color: #ffffff;
+        transition: all 0.5s;
+    }
+
+    .loginBtn:hover {
+        background-color: rgba(255, 0, 212, 0.5);
+    }
+
+    .loginBtn:active {
+        background-color: rgba(231, 149, 25, 0.5);
+    }
+
+}
+
+// 后台管理主体内容
+.box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @navBoxWidth: 15%;
+
+    .navBox {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        width: @navBoxWidth;
+        height: 100%;
+        background-color: rgba(255, 4, 163, 0.1);
+        background-image: linear-gradient(to right, rgba(255, 4, 163, 0.5), rgba(255, 255, 255, 0.5));
+
+        img {
+            width: 15%;
+            margin-right: 5%;
+            margin-left: -5%;
+        }
+
+        li {
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            font-size: 22px;
+            border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+
+        }
+
+        li:hover {
+            cursor: pointer;
+            background-image: linear-gradient(to right, rgba(4, 180, 255, 0.5), rgba(255, 255, 255, 0.5));
+        }
+
+        li:active {
+            background-image: linear-gradient(to right, rgba(4, 255, 142, 0.5), rgba(255, 255, 255, 0.5));
+        }
+
+        .selectedNav {
+            background-image: linear-gradient(to right, rgba(4, 180, 255, 0.5), rgba(255, 255, 255, 0.5));
+        }
+    }
+
+    // 主要样式
+    .contentBox {
+        position: absolute;
+        left: @navBoxWidth;
+        top: 0;
+        width: 100%-@navBoxWidth;
+        height: 100%;
+        overflow: scroll;
+
+        h2 {
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 34px;
+        }
+    }
+
+    // 隐藏滚动条
+    .contentBox::-webkit-scrollbar {
+        display: none
+    }
+
+    // 添加文章
+    .addArticle {
+        .articleImg {
+            display: block;
+            width: 30%;
+            margin: auto;
+        }
+
+        .operationBtn {
+            // position: absolute;
+            // bottom: 5%;left: 50%;
+            // transform: translateX(-50%);
+            display: block;
+            width: 70%;
+            height: 50px;
+            margin: 50px auto;
+            line-height: 50px;
+            background-color: rgba(0, 255, 251, 0.5);
+            border: 0;
+            border-radius: 5px;
+            font-size: 20px;
+            // color: #ffffff;
+            transition: all 0.5s;
+        }
+
+        .operationBtn:hover {
+            background-color: rgba(0, 157, 255, 0.5);
+        }
+
+        .operationBtn:active {
+            background-color: rgba(0, 255, 89, 0.5);
+        }
+    }
+
+    // 删除文章
+    .deleteArticle,
+    .deleteDiary,
+    .blogLog {
+        ul {
+            width: 90%;
+            height: 65%;
+            margin: auto;
+            overflow: scroll;
+
+            li {
+                display: flex;
+
+                &>div:nth-child(1) {
+                    width: 5%;
+                    text-align: center;
+                }
+
+                &>div:nth-child(2) {
+                    width: 25%;
+                }
+
+                &>div:nth-child(3) {
+                    flex: 1;
+                }
+
+                &>div:nth-child(4) {
+                    width: 25%;
+                    text-align: center;
+                }
+
+                &>div:nth-child(5) {
+                    width: 10%;
+                    text-align: center;
+                }
+
+
+                div {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin: 0 10px;
+                    height: 70px;
+                    line-height: 70px;
+                    // padding: 10px 0;
+                }
+            }
+
+            li {
+                border-bottom: 1px dotted #888;
+            }
+
+        }
+
+        // 隐藏滚动条
+        &>ul::-webkit-scrollbar {
+            display: none
+        }
+
+        .th {
+            display: flex;
+            width: 90%;
+            margin: auto;
+            border-bottom: 1px solid #000;
+            text-align: center;
+            font-weight: 800;
+            font-size: 18px;
+
+            &>div:nth-child(1) {
+                width: 5%;
+                text-align: center;
+            }
+
+            &>div:nth-child(2) {
+                width: 25%;
+            }
+
+            &>div:nth-child(3) {
+                flex: 1;
+            }
+
+            &>div:nth-child(4) {
+                width: 25%;
+                text-align: center;
+            }
+
+            &>div:nth-child(5) {
+                width: 10%;
+                text-align: center;
+            }
+
+            div {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin: 0 10px;
+                padding: 10px 0;
+            }
+        }
+
+        .moreBtn {
+            margin-top: 20px;
+        }
+    }
+
+    // 删除日记
+    .deleteDiary {
+        .th {
+            .diaryContent {
+                flex: 1;
+            }
+        }
+
+        ul li {
+            .diaryCreateTime {
+                width: 25%;
+                text-align: center;
+            }
+
+            .diaryContent {
+                flex: 1;
+            }
+
+            .diarySet .deleteBtn {
+                height: 40px;
+            }
+        }
+    }
+
+    // 添加日记
+    .addDiary,
+    .setSelfInfo {
+
+        .addDiaryText,
+        .setSelfInfoText {
+            display: block;
+            width: 80%;
+            height: 50%;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            text-indent: 2em;
+            font-size: 20px;
+        }
+
+        .addDiaryBtn,
+        .setSelfInfoBtn {
+            margin-top: 40px;
+        }
+    }
+
+    // 博客日志
+    .blogLog {
+        .th {
+            .logInfo {
+                flex: 1;
+            }
+
+            #titlelogTitle {
+                width: 20%;
+            }
+
+            #titlelogCreateTime {
+                flex:initial;
+                width: 25%;
+            }
+        }
+
+        ul li {
+            text-align: center;
+
+            .logInfo {
+                flex: 1;
+            }
+
+            #logTitle {
+                width: 20%;
+            }
+
+            #logCreateTime {
+                flex:initial;
+                width: 25%;
+            }
+        }
+    }
+
+
+    // 友情链接
+    .addLink {
+        table {
+            width: 80%;
+            height: 300px;
+            margin: auto;
+
+            tr {
+                input {
+                    width: 80%;
+                    height: 45px;
+                    margin-left: 10px;
+                    padding: 0 20px;
+                    font-size: 18px;
+                    border: 0;
+                    border-bottom: 1px solid #000;
+                    background-color: transparent;
+                }   
+            }
+
+            tr>td:nth-child(1) {
+                width: 20%;
+                font-size: 20px;
+                text-align: right;
+            }
+        }
+
+        .addLinkBtn {
+            margin-top: 20px;
+        }
+    }
+
+}
+
+
+// 统一加载更多按钮
+.moreBtn {
+    display: block;
+    width: 70%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgba(14, 255, 162, 0.5);
+    font-size: 20px;
+    border: 0;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+.moreBtn:hover {
+    background-color: rgba(48, 241, 0, 0.5);
+}
+
+
+// 统一删除按钮样式
+.deleteBtn {
+    width: 70%;
+    height: 28px;
+    background-color: rgba(255, 0, 0, 0.4);
+    border: 0;
+    transition: all 0.5s;
+}
+
+.deleteBtn:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+
+// 统一隐藏元素
+.hide {
+    display: none;
+}

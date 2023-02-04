@@ -1,0 +1,145 @@
+/* 浮出文本样式 */
+span {
+  margin: 0;
+  padding: 0;
+}
+/* body {
+	width: 100%;
+	height: 100vh;
+} */
+.text_popup {
+  animation: textPopUp 1.8s;
+  font-size: 16px;
+  position: absolute;
+  user-select: none;
+  white-space: nowrap;
+  /* 保持文字在最上层显示 */
+  z-index: 999;
+}
+@keyframes textPopUp {
+  0% {
+    opacity: 1;
+    /* 不透明度为0% */
+  }
+  100% {
+    opacity: 0;
+    /* 不透明度为100% */
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-140px);
+  }
+}
+/* 全屏背景图，可以用js来添加 */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -9999;
+  /* background-image: url('./../images/login_bg2.jpg'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/* 遮罩层，不建议使用，可以参考 */
+.bigBgc {
+  overflow: hidden;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: -9998;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+.bigBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background-color: rgba(250, 106, 207, 0.1);
+  color: #fff;
+}
+.bigBox h2 {
+  width: 70%;
+  height: 100px;
+  line-height: 100px;
+  margin: auto;
+  padding: 10px 1em;
+  font-size: 34px;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bigBox .content {
+  width: 70%;
+  margin: 20px auto;
+}
+.bigBox .info {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-top: 1px solid #fff;
+  padding: 10px 2em;
+}
+.bigBox p {
+  text-indent: 2em;
+}
+.bigBox::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  h2,
+  .info {
+    width: 80%;
+  }
+  .content {
+    width: 80%;
+  }
+  .content img {
+    width: 90%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1000px) {
+  h2,
+  .info {
+    width: 80%;
+  }
+  .content {
+    width: 80%;
+  }
+  .content img {
+    width: 90%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 640px) {
+  .bigBox h2,
+  .bigBox .info {
+    width: 85%;
+  }
+  .bigBox h2 {
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+  }
+  .bigBox .content {
+    width: 90%;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  .bigBox .content img {
+    width: 90%;
+    height: auto;
+  }
+}

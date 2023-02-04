@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./../home/images/icon.png">
+    <!-- <link rel="stylesheet" href="./../assets/tools/linfengTools.css"> -->
+    <link rel="stylesheet" href="./../home/css/article.css">
+
+    <script src="./../assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="./../assets/lib/axios.min.js"></script>
+    <script src="./../assets/config.js"></script>
+    <!-- <script src="./../home/js/default.js"></script> -->
+    <script src="./../assets/tools/linfengTools-min.js"></script>
+    <!-- 引入例子特效 -->
+    <script src="./../assets/lib/lizi/mouse.min.js"></script>
+
+    <!-- 看板娘样式 -->
+    <link rel="stylesheet" href="./../assets/lib/live2d/css/live2d.css">
+    <title>林风的小宇宙</title>
+</head>
+
+<body>
+    <div class="bigBox">
+        <h2>数据加载中。。。</h2>
+        <div class="content">
+            数据加载中...
+        </div>
+        <div class="info">
+            <div class="time">timeLoading...</div>
+        </div>
+    </div>
+
+    <!-- 小人 -->
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+        <div class="hide-button">隐藏</div>
+    </div>
+    <script type="text/javascript">
+        var message_Path = './../assets/lib/live2d/';
+        var home_Path = 'https://haremu.com/'
+    </script>
+    <script type="text/javascript" src="./../assets/lib/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="./../assets/lib/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "./../assets/lib/live2d/model/index.json");
+    </script>
+</body>
+<script src="./../home/js/article.js"></script>
+<script>
+    const { equipment } = linfengTools
+    if (equipment.pc()) {
+        // 例子特效
+        $.shuicheMouse({
+            type: 11,
+            color: "rgba(187,67,128,1)"
+        })
+    }
+</script>
+
+</html>

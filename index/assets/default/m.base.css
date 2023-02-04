@@ -1,0 +1,111 @@
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* 图片排版 */
+img {
+    vertical-align: middle;
+    border-width: 0px;
+}
+
+/* 取消圆点 */
+ul,
+li {
+    list-style: none;
+}
+
+/* 取消斜体 */
+ul,
+em {
+    font-style: normal;
+}
+
+/* 外边线 */
+input,
+button {
+    outline: none;
+}
+
+/* 超链接样式 */
+a {
+    text-decoration: none;
+}
+
+button {
+    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+
+/* 清除浮动 */
+.clearFloat::after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: "";
+    height: 0px;
+}
+
+/* 表格边距取消 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea{
+    /* 去掉拖拽,重新定义文本域大小,用户无法拖拽 */
+    resize: none;
+    /* 选中时候的外线取消 */
+    outline: none;
+}
+
+body {
+    width: 100%;
+    /* 屏幕最小宽 */
+    min-width: 320px;
+    /* 屏幕最大宽 */
+    max-width: 640px;
+    /* 禁止点击连接高亮 */
+    -webkit-tap-highlight-color: transparent;
+    /* 水平滚动条 */
+    overflow-x: hidden;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, Geneva, Verdana, sans-serif;
+    color: #000;
+}
+
+
+/* 设置超链接 */
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+/* 禁用长按弹出菜单 */
+img, a {
+    -webkit-touch-callout: none;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./../home/images/icon.png">
+    <!-- 引入林风工具 -->
+    <link rel="stylesheet" href="./../assets/tools/linfengTools.css">
+    <script src="./../assets/tools/linfengTools-min.js"></script>
+    <!-- 引入自定义动画库 -->
+    <link rel="stylesheet" href="./../home/css/anim.css">
+    <!-- 引入jQuery -->
+    <script src="./../assets/lib/jquery-3.6.0.min.js"></script>
+    <!-- 引入vue -->
+    <script src="./../assets/lib/vue.min.js"></script>
+    <!-- 引入axios -->
+    <script src="./../assets/lib/axios.min.js"></script>
+    <!-- 引入媒体查询 -->
+    <!-- <script src="./../home/css/media.css"></script> -->
+    <!-- 引入基础设置 -->
+    <!-- <script src="./../home/js/default.js"></script> -->
+    <!-- 引入基础配置 -->
+    <script src="./../assets/config.js"></script>
+    <script src="./../assets/lib/lizi/mouse.min.js"></script>
+    <!-- 引入基础css -->
+    <link rel="stylesheet" href="./../home/css/self.css">
+    <title>林风的小宇宙</title>
+</head>
+
+<body>
+    <div id="bigBox">
+        <h2>个人简介</h2>
+        <div class="content">
+            <div class="img">
+                <img src="./../home/images/linfeng.jpg" alt="">
+            </div>
+            <div class="contBox">
+                <h3>林风</h3>
+                <p class="text">
+                    {{text}}
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./../home/js/self.js"></script>
+<script>
+    const { equipment } = linfengTools
+    if (equipment.pc()) {
+        // 例子特效
+        $.shuicheMouse({
+            type: 11,
+            color: "rgba(187,67,128,1)"
+        })
+    }
+</script>
+</html>
